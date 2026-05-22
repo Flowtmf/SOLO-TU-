@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Ti ❤️</title>
+
+<!-- FUENTES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&family=Cormorant+Garamond:wght@300;500&display=swap" rel="stylesheet">
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("16Cj5jjCZujNCozOz");
+})();
+</script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#050505;
+overflow:hidden;
+font-family:'Poppins',sans-serif;
+color:white;
+}
+
+/* SECCIONES */
+
+section{
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:30px;
+position:absolute;
+top:0;
+left:0;
+animation:fade 1.5s;
+}
+
+.active{
+display:flex;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0px);
+}
+
+}
+
+/* FONDO */
+
+.background{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 30%),
+#050505;
+z-index:-2;
+}
+
+/* PARTICULAS */
+
+.particles{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+overflow:hidden;
+}
+
+.particle{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+opacity:.4;
+animation:float 10s linear infinite;
+}
+
+@keyframes float{
+
+from{
+transform:translateY(100vh);
+}
+
+to{
+transform:translateY(-10vh);
+}
+
+}
+
+/* TITULOS */
+
+.title{
+font-family:'Great Vibes',cursive;
+font-size:5rem;
+color:#f1e5d8;
+margin-bottom:20px;
+text-align:center;
+}
+
+.subtitle{
+font-family:'Cormorant Garamond',serif;
+font-size:1.4rem;
+max-width:700px;
+text-align:center;
+opacity:.8;
+line-height:1.8;
+margin-bottom:40px;
+}
+
+/* INPUT */
+
+input{
+width:340px;
+padding:18px;
+background:#101010;
+border:none;
+border-radius:20px;
+outline:none;
+color:white;
+font-size:1rem;
+text-align:center;
+margin-bottom:20px;
+letter-spacing:2px;
+}
+
+/* BOTONES */
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:20px;
+background:#e5d3c3;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+font-size:1rem;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* TARJETAS */
+
+.card{
+background:rgba(255,255,255,0.04);
+padding:40px;
+border-radius:30px;
+max-width:850px;
+width:100%;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 30px rgba(255,255,255,0.04);
+overflow-y:auto;
+max-height:85vh;
+}
+
+.card p{
+font-family:'Cormorant Garamond',serif;
+font-size:1.3rem;
+line-height:2;
+margin-bottom:20px;
+opacity:.92;
+}
+
+/* FOTO */
+
+.photo{
+width:100%;
+border-radius:25px;
+margin-top:20px;
+box-shadow:0 0 25px rgba(255,255,255,0.08);
+}
+
+/* FINAL */
+
+.final{
+margin-top:40px;
+text-align:center;
+font-size:2rem;
+font-family:'Great Vibes',cursive;
+color:#f1e5d8;
+}
+
+/* CONTADORES */
+
+.counterBox{
+margin-top:20px;
+width:100%;
+}
+
+.counter{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+gap:20px;
+}
+
+.counter h3{
+font-weight:300;
+font-size:1rem;
+line-height:1.6;
+}
+
+.number{
+font-size:2rem;
+margin:0 20px;
+color:#f1e5d8;
+min-width:40px;
+display:inline-block;
+text-align:center;
+}
+
+.warning{
+margin-top:20px;
+font-size:1.2rem;
+color:#ffb8b8;
+font-family:'Cormorant Garamond',serif;
+display:none;
+text-align:center;
+}
+
+/* AUDIO */
+
+audio{
+width:100%;
+margin-top:20px;
+}
+
+/* SCROLL */
+
+.card::-webkit-scrollbar{
+width:6px;
+}
+
+.card::-webkit-scrollbar-thumb{
+background:#333;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="particles" id="particles"></div>
+
+<!-- MÚSICA -->
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mp3">
+</audio>
+
+<!-- LOGIN -->
+
+<section id="login" class="active">
+
+<h1 class="title">
+Bienvenida
+</h1>
+
+<div class="subtitle">
+Algunas personas llegan a tu vida...
+y cambian la forma en que ves todo.
+</div>
+
+<input
+type="password"
+id="password"
+placeholder="Ingresa el mensaje oculto..."
+>
+
+<button onclick="checkPassword()">
+Entrar
+</button>
+
+</section>
+
+<!-- TEXTO -->
+
+<section id="textSection">
+
+<div class="card">
+
+<h1 class="title">
+Ábreme
+</h1>
+
+<p>
+No sabía realmente cómo empezar todo esto.
+Porque hay sentimientos demasiado grandes para escribirlos normal.
+</p>
+
+<p>
+Y contigo me pasa eso.
+Siento demasiadas cosas al mismo tiempo.
+Cariño.
+Calma.
+Amor.
+Y unas ganas enormes de cuidarte incluso en los días donde tú misma no sabes cómo hacerlo.
+</p>
+
+<p>
+Quizás esto parezca solamente una página.
+Un dibujo.
+Unas palabras.
+</p>
+
+<p>
+Pero para mí...
+esto es una pequeña parte de todo lo que nunca he sabido explicarte bien.
+</p>
+
+<p>
+Porque desde que llegaste, muchas cosas cambiaron dentro de mí.
+Hay días donde estoy cansado, confundido o con la cabeza hecha un desastre...
+y aun así apareces tú.
+</p>
+
+<p>
+Y el mundo baja el ruido un momento.
+</p>
+
+<p>
+No sé si entiendes lo especial que eres realmente.
+Porque no hablo solo de lo hermosa que me pareces.
+Hablo de tu forma de existir.
+De cómo te quedas en mi mente incluso cuando intento distraerme.
+</p>
+
+<p>
+Y sinceramente...
+me da miedo que a veces no logres verte como yo te veo.
+</p>
+
+<div style="text-align:center;margin-top:30px;">
+
+<button onclick="nextSection('textSection','audioSection')">
+Continuar
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AUDIO -->
+
+<section id="audioSection">
+
+<div class="card">
+
+<h1 class="title">
+Escúchame
+</h1>
+
+<p>
+Aquí quiero que escuches mi voz.
+Porque hay cosas que ningún texto puede decir mejor que yo.
+</p>
+
+<audio controls>
+<source src="audio.mp3" type="audio/mp3">
+</audio>
+
+<div style="text-align:center;margin-top:30px;">
+
+<button onclick="nextSection('audioSection','counterSection')">
+Continuar
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTADORES -->
+
+<section id="counterSection">
+
+<div class="card">
+
+<h1 class="title">
+Antes de Continuar...
+</h1>
+
+<div class="counterBox">
+
+<div class="counter">
+
+<h3>
+¿Cuántos besos quieres recibir hoy de mí?
+</h3>
+
+<div>
+
+<button onclick="changeValue('kisses',-1)">
+-
+</button>
+
+<span class="number" id="kisses">
+0
+</span>
+
+<button onclick="changeValue('kisses',1)">
++
+</button>
+
+</div>
+
+</div>
+
+<div class="counter">
+
+<h3>
+¿Cuántos abrazos quieres recibir hoy de mí?
+</h3>
+
+<div>
+
+<button onclick="changeValue('hugs',-1)">
+-
+</button>
+
+<span class="number" id="hugs">
+0
+</span>
+
+<button onclick="changeValue('hugs',1)">
++
+</button>
+
+</div>
+
+</div>
+
+<div class="warning" id="warning">
+No te empalagas? 😔
+</div>
+
+<div style="text-align:center;margin-top:30px;">
+
+<button onclick="sendMessage()">
+Enviar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOTO -->
+
+<section id="photoSection">
+
+<div class="card">
+
+<h1 class="title">
+Lo Recuerdo
+</h1>
+
+<img src="foto.jpg" class="photo">
+
+<p>
+¿Te acuerdas de este momento?
+</p>
+
+<p>
+Quizás para otras personas solo fue una foto.
+O un beso.
+O un instante cualquiera.
+</p>
+
+<p>
+Pero para mí...
+ese momento se quedó viviendo dentro de mi cabeza.
+</p>
+
+<p>
+Porque ahí comenzó algo.
+Algo que poco a poco empezó a sentirse demasiado importante.
+</p>
+
+<p>
+Todavía recuerdo los nervios.
+Las miradas.
+Las ganas de que el tiempo fuera más lento.
+</p>
+
+<p>
+Y luego un día entiendes que esa persona ya vive dentro de tus pensamientos diarios.
+</p>
+
+<p>
+Y tú hiciste eso conmigo.
+</p>
+
+<p>
+Convertiste momentos simples en recuerdos enormes.
+</p>
+
+<p>
+Y sinceramente...
+si pudiera volver a vivir un momento exacto contigo...
+volvería aquí.
+</p>
+
+<p>
+Porque aunque tal vez tú no lo supieras...
+aquí comenzó una de las cosas más bonitas que me han pasado.
+</p>
+
+<div class="final">
+Gracias por llegar a mi vida ✨
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+/* PARTICULAS */
+
+const particles = document.getElementById("particles");
+
+for(let i=0;i<60;i++){
+
+const p = document.createElement("div");
+
+p.classList.add("particle");
+
+p.style.left = Math.random()*100 + "vw";
+
+p.style.animationDuration = (5 + Math.random()*10) + "s";
+
+p.style.opacity = Math.random();
+
+particles.appendChild(p);
+
+}
+
+/* CONTRASEÑA */
+
+function checkPassword(){
+
+const pass = document.getElementById("password")
+.value
+.replace(/\s/g,'')
+.toUpperCase();
+
+if(pass === "ERESUNPOEMAMIPOEMA"){
+
+nextSection('login','textSection');
+
+}else{
+
+alert("La respuesta siempre estuvo frente a ti.");
+
+}
+
+}
+
+/* CAMBIAR SECCIÓN */
+
+function nextSection(current,next){
+
+document.getElementById(current)
+.classList.remove("active");
+
+document.getElementById(next)
+.classList.add("active");
+
+}
+
+/* CONTADORES */
+
+let kisses = 0;
+let hugs = 0;
+
+function changeValue(type,value){
+
+if(type === "kisses"){
+
+kisses += value;
+
+if(kisses < 0) kisses = 0;
+
+document.getElementById("kisses")
+.innerText = kisses;
+
+}
+
+if(type === "hugs"){
+
+hugs += value;
+
+if(hugs < 0) hugs = 0;
+
+document.getElementById("hugs")
+.innerText = hugs;
+
+}
+
+if(kisses > 50 || hugs > 50){
+
+document.getElementById("warning")
+.style.display = "block";
+
+}else{
+
+document.getElementById("warning")
+.style.display = "none";
+
+}
+
+}
+
+/* ENVIAR CORREO */
+
+function sendMessage(){
+
+emailjs.send(
+"service_jtw4zhg",
+"template_ng50hb8",
+{
+kisses:kisses,
+hugs:hugs
+}
+)
+
+.then(function(){
+
+nextSection(
+'counterSection',
+'photoSection'
+);
+
+})
+
+.catch(function(error){
+
+alert("Hubo un error 😔");
+
+console.log(error);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
